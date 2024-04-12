@@ -1,0 +1,17 @@
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: doctor-service-clusterip-service
+
+spec:
+  type: ClusterIP
+
+  ports:
+    - port: 80
+      targetPort: 4000
+
+  selector:
+      server: doctorservice
+

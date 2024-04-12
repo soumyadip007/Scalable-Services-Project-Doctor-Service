@@ -1,0 +1,28 @@
+apiVersion : apps/v1
+kind: Deployment
+
+metadata:
+  name: doctorservice-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      server: doctorservice
+
+
+  template:
+    metadata:
+      labels:
+        server: doctorservice
+    spec:
+      containers:
+        - name: doctorservice
+          image: doctorservice:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 4000
+          env:
+            - name: NODE_ENV
+              value: production
