@@ -37,15 +37,18 @@ const doctorSchema = new mongoose.Schema({
         enum: ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'],
         required: true,
     },
-    allergies: [{
-        type: String,
+    qualifications: [{
+        degree: String,
+        institute: String,
+        year: Number,
     }],
-    medicalHistory: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'MedicalRecord',
-        }
-    ],
+    specialties: [String],
+    workExperience: [{
+        hospital: String,
+        designation: String,
+        from: Date,
+        to: Date,
+    }],
     emergencyContact: {
         name: String,
         relationship: String,
